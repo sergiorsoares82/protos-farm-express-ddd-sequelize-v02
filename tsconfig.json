@@ -1,0 +1,32 @@
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es2022", /* Especifica a versão ECMAScript para o output. 'es2022' é bom para Node.js moderno. */
+    "module": "NodeNext", /* Especifica o sistema de módulos para o output. 'NodeNext' é o mais moderno para Node.js ESM. */
+    "moduleResolution": "NodeNext", /* Resolve módulos usando a estratégia de resolução do Node.js. */
+    "esModuleInterop": true, /* Permite interoperação padrão para importações de módulos CommonJS. Importante! */
+    "forceConsistentCasingInFileNames": true, /* Garante que as referências de arquivos usem o mesmo padrão de maiúsculas/minúsculas. */
+    "strict": true, /* Ativa todas as opções rigorosas de verificação de tipo. Fortemente recomendado! */
+    "skipLibCheck": true, /* Ignora a verificação de tipo de todos os arquivos de declaração (.d.ts). */
+    "outDir": "./dist", /* Diretório onde os arquivos compilados .js serão colocados. */
+    "rootDir": "./", /* Diretório raiz dos seus arquivos de origem TypeScript. */
+    "allowJs": true, /* Permite que o compilador processe arquivos JavaScript. */
+    "checkJs": true, /* Ativa a verificação de tipo para arquivos JavaScript. */
+    "noEmit": true, /* Não emite arquivos JavaScript (útil para projetos que só querem verificação de tipo). */
+    "resolveJsonModule": true, /* Permite importar módulos .json. */
+    "isolatedModules": true, /* Garante que cada arquivo pode ser compilado de forma independente (bom para ferramentas como SWC/Babel). */
+    "types": [
+      "node",
+      "jest"
+    ] /* Inclui as definições de tipo para Node.js e Jest. */,
+    "allowImportingTsExtensions": true /* Permite importar arquivos TypeScript com a extensão .ts. */
+  },
+  "include": [
+    "**/*.ts", /* Inclui todos os arquivos .ts no projeto. */
+    "**/*.js" /* Também inclui arquivos .js para a transição. */
+  ],
+  "exclude": [
+    "node_modules", /* Exclui a pasta node_modules da compilação. */
+    "dist" /* Exclui a pasta de saída. */
+  ]
+}
