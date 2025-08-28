@@ -18,6 +18,7 @@
     "@eslint/js": "^9.34.0",
     "@swc/core": "^1.13.5",
     "@swc/jest": "^0.2.39",
+    "@types/express": "^5.0.3",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.3.0",
     "@typescript-eslint/eslint-plugin": "^8.41.0",
@@ -29,5 +30,8 @@
     "prettier": "^3.6.2",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.41.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
