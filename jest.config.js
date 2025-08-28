@@ -6,6 +6,16 @@ const config = {
   transform: {
     '^.+.(t|j)sx?$': '@swc/jest',
   },
+  moduleNameMapper: {
+    // Mapeia '@/*' para o diretório 'src/'
+    // O '^@/(.*)$' é uma expressão regular que captura qualquer coisa após '@/'.
+    // O '<rootDir>/src/$1' instrui o Jest a procurar o arquivo correspondente
+    // dentro do diretório 'src' a partir da raiz do projeto (rootDir).
+    '^@/(.*)$': '<rootDir>/src/$1',
+
+    // Exemplo: se você tivesse um alias para componentes:
+    // '^@components/(.*)$': '<rootDir>/src/components/$1',
+  },
 };
 
 export default config;

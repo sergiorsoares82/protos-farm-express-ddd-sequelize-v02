@@ -19,7 +19,13 @@
       "node",
       "jest"
     ] /* Inclui as definições de tipo para Node.js e Jest. */,
-    "allowImportingTsExtensions": true /* Permite importar arquivos TypeScript com a extensão .ts. */
+    "allowImportingTsExtensions": true /* Permite importar arquivos TypeScript com a extensão .ts. */,
+    "baseUrl": "." /* Define a base para resolução de módulos. */,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
   },
   "include": [
     "**/*.ts" /* Inclui todos os arquivos .ts no projeto. */,
