@@ -13,12 +13,7 @@ export class Uuid extends ValueObject {
   // Marcada como 'private' e 'readonly' para imutabilidade e encapsulamento.
   private readonly _id: string;
 
-  /**
-   * Construtor privado para garantir que as instâncias de Uuid
-   * sejam criadas apenas através dos métodos estáticos (factories).
-   * Isso força a validação e/ou geração controlada.
-   */
-  private constructor(id: string) {
+  protected constructor(id: string) {
     super(); // Chama o construtor de ValueObject
     this._id = id;
     this.validate(id);
