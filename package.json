@@ -18,6 +18,7 @@
     "@eslint/js": "^9.34.0",
     "@swc/core": "^1.13.5",
     "@swc/jest": "^0.2.39",
+    "@types/chance": "^1.1.7",
     "@types/express": "^5.0.3",
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.20",
@@ -34,8 +35,10 @@
     "typescript-eslint": "^8.41.0"
   },
   "dependencies": {
+    "chance": "^1.1.13",
     "express": "^5.1.0",
     "lodash": "^4.17.21",
-    "uuid": "^11.1.0"
+    "uuid": "^11.1.0",
+    "zod": "^4.1.5"
   }
 }

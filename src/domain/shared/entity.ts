@@ -1,8 +1,10 @@
+import { NotificationError } from './validators/notification';
 import type { Uuid } from './value-objects/uuid.vo';
 
 export abstract class Entity<T extends Uuid> {
   protected _createdAt: Date;
   protected _updatedAt: Date;
+  notificationError: NotificationError = new NotificationError();
 
   /**
    * Construtor da classe Entity.

@@ -1,26 +1,42 @@
 import { validate } from 'uuid';
 import { Entity } from '../entity';
 import { Uuid } from '../value-objects/uuid.vo';
+import { NotificationError } from '../validators/notification';
 
 class DummyUuid extends Uuid {}
 class DummyEntity extends Entity<DummyUuid> {
   private _id: DummyUuid;
-  public name: string;
+  private _name: string;
 
-  constructor(name: string = 'Dummy Name') {
+  constructor(id?: DummyUuid, name: string = 'Dummy Name') {
     super();
-    this._id = DummyUuid.generate();
-    this.name = name;
+    this._id = id || DummyUuid.generate();
+    this._name = name;
   }
 
   get entity_id(): DummyUuid {
     return this._id;
   }
 
+  get name(): string {
+    return this._name;
+  }
+
+  // Método para simular uma atualização e chamar touch()
+  public updateName(newName: string): void {
+    this._name = newName;
+    this.touch();
+  }
+
+  // Apenas para expor a instância de NotificationError para teste
+  public getNotificationError(): NotificationError {
+    return this.notificationError;
+  }
+
   toJSON(): any {
     return {
-      id: this.entity_id.id,
-      name: this.name,
+      id: this._id.id,
+      name: this._name,
       createdAt: this.createdAt.toISOString(),
       updatedAt: this.updatedAt.toISOString(),
     };
@@ -62,6 +78,13 @@ describe('Entity', () => {
     expect(dummyEntity.entity_id).toBeDefined();
     expect(dummyEntity.entity_id).toBeInstanceOf(Uuid);
     expect(validate(dummyEntity.entity_id.id)).toBe(true);
+  });
+
+  it('should initialize notificationError as an instance of NotificationError', () => {
+    expect(dummyEntity.getNotificationError()).toBeInstanceOf(
+      NotificationError,
+    );
+    expect(dummyEntity.getNotificationError().hasErrors()).toBe(false);
   });
 
   it('should return a valid JSON representation', () => {
