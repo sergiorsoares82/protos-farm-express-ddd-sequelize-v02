@@ -152,7 +152,10 @@ describe('Notification Unit Tests', () => {
       // The order of items in Map iteration is insertion order in modern JS environments, but
       // for safety, verify content not strict order if not explicitly guaranteed by spec.
       expect(jsonResult).toContainEqual({ password: ['Password too short'] });
-      expect(jsonResult).toContainEqual('User not found');
+      expect(jsonResult).toEqual([
+        { password: ['Password too short'] },
+        { 'User not found': ['User not found'] },
+      ]);
       expect(jsonResult.length).toBe(2);
     });
     it('should return an empty array if no errors', () => {

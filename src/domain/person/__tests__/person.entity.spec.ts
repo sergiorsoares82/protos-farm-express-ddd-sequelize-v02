@@ -245,7 +245,7 @@ describe('PersonEntity Tests', () => {
       };
       const person = new PersonEntity(props);
       expect(person.toJSON()).toEqual({
-        person_id: props.person_id,
+        person_id: props.person_id?.id,
         name: props.name,
         person_type: props.person_type,
         created_at: props.created_at,
